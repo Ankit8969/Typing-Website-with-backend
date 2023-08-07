@@ -29,7 +29,7 @@ mongoose.connect('mongodb+srv://ankit-kumar:Ankit12@3@typing-website.aia5b.mongo
 const User = require('./models/user')
 
 // Routing part 
-app.get('/', auth,(req,res)=>{
+app.get('/', (req,res)=>{
     try {
         res.status(200).render('indexNew')
     } catch (e) {
@@ -37,7 +37,7 @@ app.get('/', auth,(req,res)=>{
     }
 })
 
-app.get('/logo' , auth , (req, res)=>{
+app.get('/logo' ,  (req, res)=>{
     res.redirect('/')
 })
 
@@ -57,7 +57,7 @@ app.get('/login',(req, res)=>{
     }
 })
 
-app.get('/practice', auth,(req, res)=>{
+app.get('/practice', (req, res)=>{
     try {
         res.status(200).render('HomePageindex')
     } catch (e) {
@@ -94,7 +94,7 @@ app.get('/practice/wordPractice' ,(req, res)=>{
     }
 })
 
-app.get('/logout',auth,async (req,res)=>{
+app.get('/logout',async (req,res)=>{
     try
     {
         console.log(req.user)
@@ -112,8 +112,9 @@ app.get('/profile' ,(req ,res)=>{
     res.status(500).render('profile')
 })
 
-app.get('/howtostart' ,auth,(req ,res)=>{
-    res.status(200).render('howtostart')
+app.get('/howtostart' ,(req ,res)=>{
+    // res.status(200).render('howtostart')
+    res.render('howtostart');
 })
 
 app.post('/signup' ,async (req,res)=>{
